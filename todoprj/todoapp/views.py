@@ -50,6 +50,9 @@ def register(request):
     return render(request, 'todoapp/register.html',{})
 
 def loginpage(request):
+    if request.user.is_authenticated:
+        return redirect('home-page')
+    
     if request.method == 'POST':
         username = request.POST.get('uname')
         password = request.POST.get('pass')
