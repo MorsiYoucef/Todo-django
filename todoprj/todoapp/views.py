@@ -5,12 +5,16 @@ from django.contrib import messages
 from .models import todo
 
 
+
 # Create your views here.
+
 def home (request):
     if request.method == 'POST':
         task = request.POST.get('task')
         new_todo = todo(user = request.user, todo_name = task)
         new_todo.save()
+
+        return redirect('home-page') 
     
     all_todos = todo.objects.filter(user = request.user)
     print(all_todos)
@@ -55,3 +59,10 @@ def loginpage(request):
             return redirect('login-page')
 
     return render(request, 'todoapp/login.html',{})
+
+
+def DeleteTask(request, name):
+    pass
+
+def Update( request, name):
+    pass
