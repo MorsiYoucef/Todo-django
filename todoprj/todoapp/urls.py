@@ -6,5 +6,6 @@ urlpatterns = [
     path('register/',views.register ,name="register"),
     path('login/',views.loginpage,name="login-page"),
     path('delete-task/<str:name>/', views.DeleteTask, name='delete'),
-    path("update/<str:name>/",views.Update, name='update')
+    path("update/<str:name>/",views.Update, name='update'),
+    path('logout/', views.LogoutView,name='logout')
 ]
